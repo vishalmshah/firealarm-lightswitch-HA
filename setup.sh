@@ -8,7 +8,7 @@ if [ "$EUID" -ne 0 ]; then
     exit 1
 fi
 
-DIR="$(pwd)"
+DIR="$(dirname "$(realpath "$0")")"
 SYS_DIR="$DIR/system"
 
 echo "========================================"
