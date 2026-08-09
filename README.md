@@ -52,9 +52,11 @@ The node publishes to `home/fire_alarm/action`.
 * `LONG_PRESS`: Fired when the button is held past the threshold (default 1.5s).
 
 **Example HA Automations:**
+
 *Short Press*
 1. **Trigger:** MQTT, Topic: `home/fire_alarm/action`, Payload: `SHORT_PRESS`
 2. **Action:** Toggle smart lights.
+
 *Long Press*
 1. **Trigger:** MQTT, Topic: `home/fire_alarm/action`, Payload: `LONG_PRESS`
 2. **Action:** Turn on home stereo and dim lights.
