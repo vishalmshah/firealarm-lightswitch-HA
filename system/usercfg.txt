@@ -1,0 +1,3 @@
+# system_configs/usercfg.txt
+# Custom hardware overrides
+dtparam=watchdog=on
