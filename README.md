@@ -6,7 +6,8 @@ It is built to run as a headless appliance on a Raspberry Pi Zero W, prioritizin
 
 ## Hardware Setup
 
-![The Physical Switch](docs/switch_image.jpeg) 
+<!-- ![The Physical Switch](docs/switch_image.jpeg)  -->
+<img src="docs/switch_image.jpeg" width="400">
 *Caption: Brief description of the physical switch.*
 
 ### Wiring Diagram
@@ -16,7 +17,7 @@ It is built to run as a headless appliance on a Raspberry Pi Zero W, prioritizin
 ## Key Features
 * **One-script setup:** No manual Linux configuration required. A single `setup.sh` script handles everything from Python virtual environments to systemd services and hardware drop-ins, making installation completely plug-and-play.
 * **Zero lag & reliable connection:** Built for absolute zero-latency. OS-level tweaks keep the Wi-Fi permanently awake, while a persistent background MQTT socket guarantees instant reaction times. If the system ever hangs, a native hardware watchdog automatically forces a physical reboot.
-* **Ultra-Low Overhead:** Instead of wastefully polling the GPIO pins, the script uses hardware interrupts. The CPU idles at 0.0%, running cool and drawing minimal power.
+* **Ultra-Low Overhead:** Instead of wastefully polling the GPIO pins, the script uses hardware interrupts. The CPU runs cool and draws minimal power.
 * **Configured in Home Assistant:** The hardware simply announces when it is pressed. All the rules for what happens next are handled in Home Assistant, meaning the switch's actions can be easily changed directly from the app without editing any Python code.
 * **Smart Multi-Action:** Natively distinguishes between short taps and long holds. Built-in state tracking gracefully intercepts the physical release of the button, guaranteeing that a long-press never accidentally triggers a short-press payload on its way up.
 * **Fail-Safe Dashboards:** Utilizes MQTT's Last Will and Testament (LWT) protocol. If the hardware unexpectedly loses power, the broker instantly tells Home Assistant to mark the device as "Offline," keeping dashboards perfectly synced with physical reality instead of displaying a ghost switch.

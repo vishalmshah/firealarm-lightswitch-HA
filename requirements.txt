@@ -1,4 +1,3 @@
 paho-mqtt>=2.0.0
 gpiozero>=2.0
-psutil==5.9.8
 lgpio>=0.2.2.0
