@@ -6,13 +6,12 @@ It is built to run as a headless appliance on a Raspberry Pi Zero W, prioritizin
 
 ## Hardware Setup
 
-<!-- ![The Physical Switch](docs/switch_image.jpeg)  -->
-<img src="docs/switch_image.jpeg" width="400">
-*Caption: Brief description of the physical switch.*
+![The Physical Switch](docs/switch_image.jpeg) 
+*Caption: Using [this](https://www.amazon.com/dp/B0BXLKM15C?th=1) common fire alarm pull switch*
 
 ### Wiring Diagram
 ![Wiring Diagram](docs/wiring_diagram.png)
-*Caption: GPIO 16 wired to the switch, pulling to ground.*
+*Caption: GPIO 16 wired to the switch, pulling to ground. Note that you must break the locking mechanism for it to act like a button*
 
 ## Key Features
 * **One-script setup:** No manual Linux configuration required. A single `setup.sh` script handles everything from Python virtual environments to systemd services and hardware drop-ins, making installation completely plug-and-play.
