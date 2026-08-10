@@ -7,8 +7,8 @@ HA_MQTT_PASS = "your_secret_password"
 
 # --- Hardware Settings ---
 GPIO_PIN = 16
-HOLD_TIME = 1.5
-DEBOUNCE = 0.5
+HOLD_TIME = 1.0
+DEBOUNCE = 0.05
 PULL_UP = False
 
 # --- MQTT Topics ---

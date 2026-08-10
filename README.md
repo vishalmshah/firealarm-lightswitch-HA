@@ -6,7 +6,7 @@ It is built to run as a headless appliance on a Raspberry Pi Zero W, prioritizin
 
 ## Hardware Setup
 
-![The Physical Switch](docs/switch_image.jpg) 
+![The Physical Switch](docs/switch_image.jpeg) 
 *Caption: Brief description of the physical switch.*
 
 ### Wiring Diagram

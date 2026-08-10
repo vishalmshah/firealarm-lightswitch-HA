@@ -1,5 +1,7 @@
 import signal
 import sys
+import threading
+
 from gpiozero import Button
 from paho.mqtt import client as mqtt_client
 
@@ -40,8 +42,8 @@ def setup_mqtt():
     )
 
     # Configure
-    if cfg.MQTT_USER and cfg.MQTT_PASS:
-        client.username_pw_set(cfg.MQTT_USER, cfg.MQTT_PASS)
+    if cfg.HA_MQTT_USER and cfg.HA_MQTT_PASS:
+        client.username_pw_set(cfg.HA_MQTT_USER, cfg.HA_MQTT_PASS)
     client.will_set(cfg.TOPIC_AVAILABILITY, "offline", qos=1, retain=True)
     client.on_connect = on_connect
     client.on_disconnect = on_disconnect
@@ -77,7 +79,7 @@ def setup_gpio_button():
 def handle_long_press():
     """
     Triggered when the button is held past the HOLD_TIME threshold.
-    TODO: Set the state flag, print a debug message, and publish the LONG_PRESS payload.
+    Set the state flag, print a debug message, and publish the LONG_PRESS payload.
     """
     state["long_press_fired"] = True
     client.publish(cfg.TOPIC_ACTION, "LONG_PRESS", qos=1)
@@ -86,7 +88,7 @@ def handle_long_press():
 def handle_short_press():
     """
     Triggered when the button is released.
-    TODO: Check the state flag. If a long press just finished, reset the flag and do nothing.
+    Check the state flag. If a long press just finished, reset the flag and do nothing.
     If it's a true short press, publish the SHORT_PRESS payload.
     """
     if state["long_press_fired"]:
@@ -129,4 +131,5 @@ if __name__ == "__main__":
 
     # Setup complete, put main thread to sleep
     print("Setup complete, system active. CPU sleeping while waiting for hardware interrupts...")
-    signal.pause()
+
+    threading.Event().wait()
